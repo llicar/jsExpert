@@ -19,8 +19,8 @@ class File{
         return (await readFile(filename)).toString("utf8")
     }
     static isValid(csvString,options = DEFAULT_OPTION){
-        const [header,...fileWithoutHeader] = csvString.split('\n')
-        const isHeaderValid = header ===options.fields.join(',')
+        const [headers,...fileWithoutHeader] = csvString.split('\n')
+        const isHeaderValid = headers ===options.fields.join(',')
         if(!isHeaderValid){
             return{
                 error:error.FILE_FIELDS_ERROR_MESSAGE,
